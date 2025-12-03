@@ -8,7 +8,7 @@ const routes = express.Router()
 
 routes.post("/", userController.postUserController)
 
-routes.get("/" , loginAuth(),  userController.getUserController)
+routes.get("/" , loginAuth("admin"),  userController.getUserController)
 
 routes.get("/:id", userController.singleGetUserController)
 
