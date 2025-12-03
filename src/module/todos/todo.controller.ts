@@ -15,17 +15,17 @@ const getTodoController = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: err.message,
-      datails: err,
+      details: err,
     });
   }
 }
 
 
 const postTodoController = async (req: Request, res: Response) => {
-  const { user_id, title } = req.body;
+//   const { user_id, title } = req.body;
 
   try {
-    const result = await todoService.postTodoService(user_id, title
+    const result = await todoService.postTodoService(req.body
     );
     res.status(201).json({
       success: true,

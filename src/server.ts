@@ -4,6 +4,7 @@ import initDB, { pool } from "./config/db";
 import logger from "./middleware/logger";
 import { userRoute } from "./module/users/user.routes";
 import { todoRoute } from "./module/todos/todo.routes";
+import { userAuth } from "./module/auth/auth.routes";
 
 const app = express();
 const port = config.port;
@@ -24,6 +25,10 @@ app.use("/users", userRoute )
 
 //! todo crud
 app.use("/todos", todoRoute)
+
+//! auth routes
+
+app.use("/auth", userAuth)
 
 
 app.use((req, res) => {

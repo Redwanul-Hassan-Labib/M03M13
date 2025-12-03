@@ -6,7 +6,7 @@ const postUserController = async (req: Request, res: Response) => {
   const { name, email } = req.body;
 
   try {
-    const result = await userService.postUserService(name, email);
+    const result = await userService.postUserService(req.body);
     // console.log(result.rows[0]);
     res.status(201).json({
       success: false,

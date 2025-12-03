@@ -5,7 +5,8 @@ const getTodoService = async ()=>{
     return result
 }
 
-const postTodoService = async (user_id:string, title:string)=>{
+const postTodoService = async (Payload: Record<string, unknown>)=>{
+  const {user_id, title} = Payload
     const result = await pool.query(
       `INSERT INTO todos(user_id, title) VALUES($1, $2) RETURNING *`,
       [user_id, title]
